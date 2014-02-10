@@ -3,6 +3,8 @@ kkpager
 
 js分页展示控件，传入简单参数就能使用的分页效果控件
 
+<b>在线测试链接：</b>http://pgkk.github.io/kkpager/example/pager_test.html
+
 ### 准备工作,引入js、css
 > \<script type="text/javascript" src="../lib/jquery-1.10.2.min.js"\>\</script\><br/>
 > \<script type="text/javascript" src="../src/kkpager.min.js"\>\</script\><br/>
