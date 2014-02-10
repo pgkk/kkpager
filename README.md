@@ -22,19 +22,19 @@ js分页展示控件，传入简单参数就能使用的分页效果控件
 > \</script\>
 
 ### 默认链接算法，按需重写  
-getLink : function(n){  
-    //这里的算法适用于比如：  
-    //hrefFormer=http://www.xx.com/news/20131212  
-    //hrefLatter=.html  
-    //那么首页（第1页）就是http://www.xx.com/news/20131212.html  
-    //第2页就是http://www.xx.com/news/20131212_2.html  
-    //第n页就是http://www.xx.com/news/20131212_n.html  
-    if(n == 1){  
-        return this.hrefFormer + this.hrefLatter;  
-    }else{  
-        return this.hrefFormer + '_' + n + this.hrefLatter;  
-    }  
-}
+> getLink : function(n){  
+>     &nbsp;&nbsp;&nbsp;&nbsp; //这里的算法适用于比如：  
+>     &nbsp;&nbsp;&nbsp;&nbsp; //hrefFormer=http://www.xx.com/news/20131212  
+>     &nbsp;&nbsp;&nbsp;&nbsp; //hrefLatter=.html  
+>    &nbsp;&nbsp;&nbsp;&nbsp; //那么首页（第1页）就是http://www.xx.com/news/20131212.html  
+>     &nbsp;&nbsp;&nbsp;&nbsp; //第2页就是http://www.xx.com/news/20131212_2.html  
+>     &nbsp;&nbsp;&nbsp;&nbsp; //第n页就是http://www.xx.com/news/20131212_n.html  
+>     &nbsp;&nbsp;&nbsp;&nbsp; if(n == 1){  
+>     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     return this.hrefFormer + this.hrefLatter;  
+>     &nbsp;&nbsp;&nbsp;&nbsp; }else{  
+>     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     return this.hrefFormer + '_' + n + this.hrefLatter;  
+>     &nbsp;&nbsp;&nbsp;&nbsp; }  
+> }
 
 
 ### 必选参数
