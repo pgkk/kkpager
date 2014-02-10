@@ -3,8 +3,13 @@ kkpager
 
 js分页展示控件，传入简单参数就能使用的分页效果控件
 
+### 准备工作,引入js、css
+> \<script type="text/javascript" src="../lib/jquery-1.10.2.min.js"\>\</script\><br/>
+> \<script type="text/javascript" src="../src/kkpager.min.js"\>\</script\><br/>
+> \<link rel="stylesheet" type="text/css" href="../src/kkpager.css" /\>
+
 ### 调用方法
-> \<div id="div_pager"\>\</div\>  
+> \<div id="kkpager"\>\</div\>  
 > \<script type="text/javascript"\>  
 > //生成分页控件  
 > kkpager.init({  
