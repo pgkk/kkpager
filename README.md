@@ -3,9 +3,26 @@ kkpager
 
 js分页展示控件，传入简单参数就能使用的分页效果控件
 
+### 调用方法
+> \<div id="div_pager"\>\</div\>  
+> \<script type="text/javascript"\>  
+> //生成分页控件  
+> kkpager.init({  
+>     	&nbsp;&nbsp;&nbsp;&nbsp; pno : '${p.pageNo}',  
+>     	&nbsp;&nbsp;&nbsp;&nbsp; //总页码  
+>     	&nbsp;&nbsp;&nbsp;&nbsp; total : '${p.totalPage}',  
+>     	&nbsp;&nbsp;&nbsp;&nbsp; //总数据条数  
+>     	&nbsp;&nbsp;&nbsp;&nbsp; totalRecords : '${p.totalCount}',  
+>     	&nbsp;&nbsp;&nbsp;&nbsp; //链接前部  
+>     	&nbsp;&nbsp;&nbsp;&nbsp; hrefFormer : '${hrefFormer}',  
+>     	&nbsp;&nbsp;&nbsp;&nbsp; //链接尾部  
+>     	&nbsp;&nbsp;&nbsp;&nbsp; hrefLatter : '${hrefLatter}'  
+> });  
+> kkpager.generPageHtml();  
+> \</script\>
 
 
-必选参数
+### 必选参数
 
     //当前页码
 		pno
@@ -14,7 +31,7 @@ js分页展示控件，传入简单参数就能使用的分页效果控件
 		//总数据条数
 		totalRecords
 
-可选参数
+### 可选参数
 
     //divID
 		pagerid : 'kkpager'
