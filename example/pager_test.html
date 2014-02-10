@@ -3,7 +3,7 @@
 <head>
 <title>test page</title>
 <script type="text/javascript" src="../lib/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="../src/kkpager.js"></script>
+<script type="text/javascript" src="../src/kkpager.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../src/kkpager.css" />
 </head>
 <body>
@@ -26,6 +26,7 @@ $(function(){
 		pageNo = 1;
 	}
 	//初始化分页控件
+	//有些参数是可选的，比如lang，若不传有默认值
 	kkpager.init({
 		pno : pageNo,
 		//总页码

@@ -1,4 +1,11 @@
-﻿var kkpager = {
+﻿/*
+  A page showing control achieved by js
+  https://github.com/pgkk/kkpager
+
+  Copyright (c) 2013 cqzhangkang@163.com
+  Licensed under the GNU GENERAL PUBLIC LICENSE
+*/
+var kkpager = {
 		//divID
 		pagerid : 'kkpager',
 		//当前页码
