@@ -64,54 +64,54 @@ getLink 参数需要按需要重写。
 
 
 ### 必选参数
-> pno 当前页码
+> `pno` 当前页码
 
-> total 总页码
+> `total` 总页码
 
-> totalRecords 总数据条数
+> `totalRecords` 总数据条数
 
 ### 可选参数
-> pagerid 分页展示控件容器ID,字符串类型,默认值 'kkpager'
+> `pagerid` 分页展示控件容器ID,`字符串`, 默认值 'kkpager'
 
-> isShowTotalPage 是否显示总页数,布尔型,默认值 true
+> `isShowTotalPage` 是否显示总页数,`布尔型`, 默认值 true
 
-> isShowTotalRecords 是否显示总记录数,布尔型,默认值 true
+> `isShowTotalRecords` 是否显示总记录数,`布尔型`,默认值 true
 
-> isGoPage 是否显示页码跳转输入框,布尔型,默认值 true
+> `isGoPage` 是否显示页码跳转输入框,`布尔型`,默认值 true
 
-> hrefFormer 链接前部,字符串类型,默认值 ''
+> `hrefFormer` 链接前部,`字符串类型`,默认值 ''
 
-> hrefLatter 链接尾部,字符串类型,默认值 ''
+> `hrefLatter` 链接尾部,`字符串类型`,默认值 ''
 
-> lang 语言配置对象，属性配置列表：
+> `lang` 语言配置对象，属性配置列表：
 
-> > prePageText 上一页按钮文本,字符串类型,默认值 '上一页'
+> - `prePageText` 上一页按钮文本,`字符串`,默认值 '上一页'
 
-> > nextPageText 下一页按钮文本,字符串类型,默认值 '下一页'
+> - `nextPageText` 下一页按钮文本,`字符串`,默认值 '下一页'
 
-> > totalPageBeforeText 总页数前缀文本,字符串类型,默认值 '共'
+> - `totalPageBeforeText` 总页数前缀文本,`字符串`,默认值 '共'
 
-> > totalPageAfterText 总页数后缀文本,字符串类型,默认值 '页'
+> - `totalPageAfterText` 总页数后缀文本,`字符串`,默认值 '页'
 
-> > totalRecordsAfterText 总记录数文本,字符串类型,默认值 '条数据'
+> - `totalRecordsAfterText` 总记录数文本,`字符串`,默认值 '条数据'
 
-> > gopageBeforeText 跳转前缀文本,字符串类型,默认值 '转到'
+> - `gopageBeforeText` 跳转前缀文本,`字符串`,默认值 '转到'
 
-> > gopageAfterText 跳转前缀文本,字符串类型,默认值 '页'
+> - `gopageAfterText` 跳转前缀文本,`字符串`,默认值 '页'
 
-> > gopageButtonOkText 跳转按钮文本,字符串类型,默认值 '确定'
+> - `gopageButtonOkText` 跳转按钮文本,`字符串`,默认值 '确定'
 
-> > buttonTipBeforeText 页码按钮提示信息前缀,字符串类型,默认值 '第'
+> - `buttonTipBeforeText` 页码按钮提示信息前缀,`字符串`,默认值 '第'
 
-> > buttonTipAfterText 页码按钮提示信息后缀,字符串类型,默认值 '页'
+> - `buttonTipAfterText` 页码按钮提示信息后缀,`字符串`,默认值 '页'
 
-> gopageWrapId	页码跳转dom ID,字符串类型,默认值 'kkpager_gopage_wrap'
+> `gopageWrapId`	页码跳转dom ID,`字符串`,默认值 'kkpager_gopage_wrap'
 
-> gopageButtonId 页码跳转按钮dom ID,字符串类型,默认值 'kkpager_btn_go'
+> `gopageButtonId` 页码跳转按钮dom ID,`字符串`,默认值 'kkpager_btn_go'
 
-> gopageTextboxId 页码输入框dom ID,字符串类型,默认值 'kkpager_btn_go_input'
+> `gopageTextboxId` 页码输入框dom ID,`字符串`,默认值 'kkpager_btn_go_input'
 		
-> getLink 链接算法函数，函数类型
+> `getLink` 链接算法函数，`函数类型`
 
 ```javascript
 //默认链接算法函数，使用时需要按需要重写
