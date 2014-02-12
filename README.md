@@ -7,8 +7,8 @@ js分页展示控件，传入简单参数就能使用的分页效果控件
 
 ### 准备工作,引入js、css
 ```html
-<script type="text/javascript" src="../lib/jquery-1.10.2.min.js"></script><br/>
-<script type="text/javascript" src="../src/kkpager.min.js"></script><br/>
+<script type="text/javascript" src="../lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../src/kkpager.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../src/kkpager.css" />
 ```
 ### 调用方法
@@ -47,22 +47,6 @@ kkpager.generPageHtml();
 getLink 参数需要按需要重写。
 
 
-### 默认链接算法，按需重写  
-> getLink : function(n){  
->     &nbsp;&nbsp;&nbsp;&nbsp; //这里的算法适用于比如：  
->     &nbsp;&nbsp;&nbsp;&nbsp; //hrefFormer=http://www.xx.com/news/20131212  
->     &nbsp;&nbsp;&nbsp;&nbsp; //hrefLatter=.html  
->    &nbsp;&nbsp;&nbsp;&nbsp; //那么首页（第1页）就是http://www.xx.com/news/20131212.html  
->     &nbsp;&nbsp;&nbsp;&nbsp; //第2页就是http://www.xx.com/news/20131212_2.html  
->     &nbsp;&nbsp;&nbsp;&nbsp; //第n页就是http://www.xx.com/news/20131212_n.html  
->     &nbsp;&nbsp;&nbsp;&nbsp; if(n == 1){  
->     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     return this.hrefFormer + this.hrefLatter;  
->     &nbsp;&nbsp;&nbsp;&nbsp; }else{  
->     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;     return this.hrefFormer + '_' + n + this.hrefLatter;  
->     &nbsp;&nbsp;&nbsp;&nbsp; }  
-> }
-
-
 ### 必选参数
 > `pno` 当前页码
 
@@ -71,48 +55,49 @@ getLink 参数需要按需要重写。
 > `totalRecords` 总数据条数
 
 ### 可选参数
-> `pagerid` 分页展示控件容器ID,`字符串`, 默认值 'kkpager'
+> `pagerid` 分页展示控件容器ID `字符串` 默认值 'kkpager'
 
-> `isShowTotalPage` 是否显示总页数,`布尔型`, 默认值 true
+> `isShowTotalPage` 是否显示总页数 `布尔型` 默认值 true
 
-> `isShowTotalRecords` 是否显示总记录数,`布尔型`,默认值 true
+> `isShowTotalRecords` 是否显示总记录数 `布尔型` 默认值 true
 
-> `isGoPage` 是否显示页码跳转输入框,`布尔型`,默认值 true
+> `isGoPage` 是否显示页码跳转输入框 `布尔型` 默认值 true
 
-> `hrefFormer` 链接前部,`字符串类型`,默认值 ''
+> `hrefFormer` 链接前部 `字符串` 默认值 ''
 
-> `hrefLatter` 链接尾部,`字符串类型`,默认值 ''
+> `hrefLatter` 链接尾部 `字符串` 默认值 ''
 
 > `lang` 语言配置对象，属性配置列表：
 
-> - `prePageText` 上一页按钮文本,`字符串`,默认值 '上一页'
+> - `prePageText` 上一页按钮文本 `字符串` 默认值 '上一页'
 
-> - `nextPageText` 下一页按钮文本,`字符串`,默认值 '下一页'
+> - `nextPageText` 下一页按钮文本 `字符串` 默认值 '下一页'
 
-> - `totalPageBeforeText` 总页数前缀文本,`字符串`,默认值 '共'
+> - `totalPageBeforeText` 总页数前缀文本 `字符串` 默认值 '共'
 
-> - `totalPageAfterText` 总页数后缀文本,`字符串`,默认值 '页'
+> - `totalPageAfterText` 总页数后缀文本 `字符串` 默认值 '页'
 
-> - `totalRecordsAfterText` 总记录数文本,`字符串`,默认值 '条数据'
+> - `totalRecordsAfterText` 总记录数文本 `字符串` 默认值 '条数据'
 
-> - `gopageBeforeText` 跳转前缀文本,`字符串`,默认值 '转到'
+> - `gopageBeforeText` 跳转前缀文本 `字符串` 默认值 '转到'
 
-> - `gopageAfterText` 跳转前缀文本,`字符串`,默认值 '页'
+> - `gopageAfterText` 跳转前缀文本 `字符串` 默认值 '页'
 
-> - `gopageButtonOkText` 跳转按钮文本,`字符串`,默认值 '确定'
+> - `gopageButtonOkText` 跳转按钮文本 `字符串` 默认值 '确定'
 
-> - `buttonTipBeforeText` 页码按钮提示信息前缀,`字符串`,默认值 '第'
+> - `buttonTipBeforeText` 页码按钮提示信息前缀 `字符串` 默认值 '第'
 
-> - `buttonTipAfterText` 页码按钮提示信息后缀,`字符串`,默认值 '页'
+> - `buttonTipAfterText` 页码按钮提示信息后缀 `字符串` 默认值 '页'
 
-> `gopageWrapId`	页码跳转dom ID,`字符串`,默认值 'kkpager_gopage_wrap'
+> `gopageWrapId`	页码跳转dom ID `字符串` 默认值 'kkpager_gopage_wrap'
 
-> `gopageButtonId` 页码跳转按钮dom ID,`字符串`,默认值 'kkpager_btn_go'
+> `gopageButtonId` 页码跳转按钮dom ID `字符串` 默认值 'kkpager_btn_go'
 
-> `gopageTextboxId` 页码输入框dom ID,`字符串`,默认值 'kkpager_btn_go_input'
+> `gopageTextboxId` 页码输入框dom ID `字符串` 默认值 'kkpager_btn_go_input'
 		
-> `getLink` 链接算法函数，`函数类型`
+> `getLink` 链接算法函数 `函数类型`
 
+### 默认链接算法，按需重写
 ```javascript
 //默认链接算法函数，使用时需要按需要重写
 getLink : function(n){
