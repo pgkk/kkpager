@@ -156,7 +156,19 @@ click 参数需要按需要重写,而getHref一般需要配置。
 
 > `gopageTextboxId` 页码输入框dom ID `字符串` 默认值 'kkpager_btn_go_input'
 		
-> `getLink` 链接算法函数 `函数类型`
+> `getLink` 链接算法函数（仅适用于mode为link） `函数类型`
+
+> `click` 自定义事件处理函数（仅适用于mode为click） `函数类型`
+
+> `getHref` 链接算法函数（仅适用于mode为click） `函数类型`
+
+### 公开方法
+
+> `selectPage` 手动调用此函数选中某个页码
+```javascript
+   //选中第2页码
+   kkpager.selectPage(2);
+```
 
 ### 默认链接算法，按需重写
 ```javascript
