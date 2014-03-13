@@ -1,4 +1,4 @@
-kkpager
+kkpager v1.2
 =======
 
 js分页展示控件，传入简单参数就能使用的分页效果控件
@@ -11,13 +11,19 @@ js分页展示控件，传入简单参数就能使用的分页效果控件
 <script type="text/javascript" src="../src/kkpager.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../src/kkpager.css" />
 ```
-### 调用方法
+### HTML DOM容器
 ```html
-<div id="kkpager"></div>  
+<div id="kkpager"></div>
+```
+### 调用方法
+
+#### 1、使用link模式
+```html
 <script type="text/javascript">
 //生成分页控件  
-kkpager.init({
+kkpager.generPageHtml({
 	pno : '${p.pageNo}',
+	mode : 'link', //可选，默认就是link
 	//总页码  
 	total : '${p.totalPage}',  
 	//总数据条数  
@@ -40,11 +46,44 @@ kkpager.init({
 		return this.hrefFormer + '_' + n + this.hrefLatter;
 	}
 	
-});  
-kkpager.generPageHtml();  
+});
 </script>
 ```
 getLink 参数需要按需要重写。
+
+
+#### 2、使用click模式（自定义跳转函数）
+```html
+<script type="text/javascript">
+//生成分页控件  
+kkpager.generPageHtml({
+	pno : '${p.pageNo}',
+	mode : 'click', //设置为click模式
+	//总页码  
+	total : '${p.totalPage}',  
+	//总数据条数  
+	totalRecords : '${p.totalCount}',  
+	//链接前部  
+	hrefFormer : '${hrefFormer}',
+	//链接尾部  
+	hrefLatter : '${hrefLatter}',
+	//点击页码、页码输入框跳转、以及首页、下一页等按钮都会调用click
+	//适用于不刷新页面，比如ajax
+	click : function(n){
+		//这里可以做自已的处理
+		//...
+		//处理完后可以手动条用selectPage进行页码选中切换
+		this.selectPage(n);
+	},
+	//getHref是在click模式下可选的重写函数，默认代码如下
+	getHref : function(n){
+		return '#';
+	}
+	
+});
+</script>
+```
+click 参数需要按需要重写,而getHref一般需要配置。
 
 
 ### 必选参数
@@ -57,9 +96,19 @@ getLink 参数需要按需要重写。
 ### 可选参数
 > `pagerid` 分页展示控件容器ID `字符串` 默认值 'kkpager'
 
+> `mode` 模式，click或link `字符串` 默认值 'link'
+
 > `isShowTotalPage` 是否显示总页数 `布尔型` 默认值 true
 
 > `isShowTotalRecords` 是否显示总记录数 `布尔型` 默认值 true
+
+> `isShowFirstPageBtn` 是否显示首页按钮 `布尔型` 默认值 true
+
+> `isShowLastPageBtn` 是否显示尾页按钮 `布尔型` 默认值 true
+
+> `isShowPrePageBtn` 是否显示上一页按钮 `布尔型` 默认值 true
+
+> `isShowNextPageBtn` 是否显示下一页按钮 `布尔型` 默认值 true
 
 > `isGoPage` 是否显示页码跳转输入框 `布尔型` 默认值 true
 
@@ -69,9 +118,21 @@ getLink 参数需要按需要重写。
 
 > `lang` 语言配置对象，属性配置列表：
 
+> - `firstPageText` 首页按钮文本 `字符串` 默认值 '首页'
+
+> - `firstPageTipText` 首页按钮提示文本 `字符串` 默认值 '首页'
+
+> - `lastPageText` 尾页按钮文本 `字符串` 默认值 '尾页'
+
+> - `lastPageTipText` 尾页按钮提示文本 `字符串` 默认值 '尾页'
+
 > - `prePageText` 上一页按钮文本 `字符串` 默认值 '上一页'
 
+> - `prePageTipText` 上一页按钮提示文本 `字符串` 默认值 '上一页'
+
 > - `nextPageText` 下一页按钮文本 `字符串` 默认值 '下一页'
+
+> - `nextPageTipText` 下一页提示按钮文本 `字符串` 默认值 '下一页'
 
 > - `totalPageBeforeText` 总页数前缀文本 `字符串` 默认值 '共'
 
