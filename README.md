@@ -62,11 +62,7 @@ kkpager.generPageHtml({
 	//总页码  
 	total : '${p.totalPage}',  
 	//总数据条数  
-	totalRecords : '${p.totalCount}',  
-	//链接前部  
-	hrefFormer : '${hrefFormer}',
-	//链接尾部  
-	hrefLatter : '${hrefLatter}',
+	totalRecords : '${p.totalCount}',
 	//点击页码、页码输入框跳转、以及首页、下一页等按钮都会调用click
 	//适用于不刷新页面，比如ajax
 	click : function(n){
@@ -75,7 +71,7 @@ kkpager.generPageHtml({
 		//处理完后可以手动条用selectPage进行页码选中切换
 		this.selectPage(n);
 	},
-	//getHref是在click模式下可选的重写函数，默认代码如下
+	//getHref是在click模式下链接算法，一般不需要配置，默认代码如下
 	getHref : function(n){
 		return '#';
 	}
