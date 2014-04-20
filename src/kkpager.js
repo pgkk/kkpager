@@ -1,5 +1,6 @@
 ﻿/*
-  一个分页展示按钮控件,kkpager V1.2.1
+  kkpager V1.2.2
+  一个分页展示按钮控件
   https://github.com/pgkk/kkpager
 
   Copyright (c) 2013 cqzhangkang@163.com
@@ -41,7 +42,6 @@ var kkpager = {
 			buttonTipBeforeText		: '第',
 			buttonTipAfterText		: '页'
 		},
-		
 		//链接算法（当处于link模式）,参数n为页码
 		getLink	: function(n){
 			//这里的算法适用于比如：
@@ -52,11 +52,9 @@ var kkpager = {
 			//第n页就是http://www.xx.com/news/20131212_n.html
 			if(n == 1){
 				return this.hrefFormer + this.hrefLatter;
-			}else{
-				return this.hrefFormer + '_' + n + this.hrefLatter;
 			}
+			return this.hrefFormer + '_' + n + this.hrefLatter;
 		},
-		
 		//页码单击事件处理函数（当处于mode模式）,参数n为页码
 		click	: function(n){
 			//这里自己实现
@@ -92,6 +90,23 @@ var kkpager = {
 					  $('#'+_this.gopageWrapId).css('border-color','#DFDFDF');
 				  });
 			},400);
+		},
+		//跳转输入框按键操作
+		keypress_gopage : function(){
+			var event = arguments[0] || window.event;
+			var code = event.keyCode || event.charCode;
+			//delete key
+			if(code == 8) return true;
+			//enter key
+			if(code == 13){
+				kkpager.gopage();
+				return false;
+			}
+			//copy and paste
+			if(event.ctrlKey && (code == 99 || code == 118)) return true;
+			//only number key
+			if(code<48 || code>57)return false;
+			return true;
 		},
 		//跳转框页面跳转
 		gopage : function(){
@@ -176,7 +191,7 @@ var kkpager = {
 				gopage_info = '&nbsp;'+this.lang.gopageBeforeText+'<span id="'+this.gopageWrapId+'">'+
 					'<input type="button" id="'+this.gopageButtonId+'" onclick="kkpager.gopage()" value="'
 						+this.lang.gopageButtonOkText+'" />'+
-					'<input type="text" id="'+this.gopageTextboxId+'" onfocus="kkpager.focus_gopage()"  onkeypress="if(event.keyCode<48 || event.keyCode>57)return false;"   onblur="kkpager.blur_gopage()" value="'+this.next+'" /></span>'+this.lang.gopageAfterText;
+					'<input type="text" id="'+this.gopageTextboxId+'" onfocus="kkpager.focus_gopage()"  onkeypress="return kkpager.keypress_gopage(event);"   onblur="kkpager.blur_gopage()" value="'+this.next+'" /></span>'+this.lang.gopageAfterText;
 			}
 			
 			//分页处理
