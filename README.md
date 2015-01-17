@@ -142,7 +142,15 @@ click 参数需要按需要重写,而getHref一般需要配置。
 
 > - `totalPageAfterText` 总页数后缀文本 `字符串` 默认值 '页'
 
-> - `totalRecordsAfterText` 总记录数文本 `字符串` 默认值 '条数据'
+> - `currPageBeforeText` 当前页前缀文本 `字符串` 默认值 '当前第'
+
+> - `currPageAfterText` 当前页后缀文本 `字符串` 默认值 '页'
+
+> - `totalInfoSplitStr` 分页统计信息部分的分隔符 `字符串` 默认值 '/'
+
+> - `totalRecordsBeforeText` 总记录数前缀文本 `字符串` 默认值 '共'
+
+> - `totalRecordsAfterText` 总记录数后缀文本 `字符串` 默认值 '条数据'
 
 > - `gopageBeforeText` 跳转前缀文本 `字符串` 默认值 '转到'
 
