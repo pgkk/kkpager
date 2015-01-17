@@ -33,19 +33,19 @@
 }
 #kkpager span.curr{
 	float: left;
-	border: 1px solid #31ACE2;
+	border: 1px solid #FF6600;
 	display: inline;
 	padding: 3px 10px 3px 10px;
 	margin-right: 5px;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
-	background: #F0FDFF;
-	color: #31ACE2;
+	background: #FFEEE5;
+	color: #FF6600;
 }
 #kkpager a:hover{
-	border:1px solid #31ACE2; 
-	background-color:#31ACE2; 
+	border:1px solid #FF6600; 
+	background-color:#FF6600; 
 	color:#fff;
 }
 #kkpager span.normalsize{
@@ -65,7 +65,7 @@
 	margin:0px;
 	text-align:center;
 	cursor:pointer;
-	background-color:#31ACE2;
+	background-color:#FF6600;
 	color:#FFF;
 	position:absolute;
 	left:0px;
@@ -91,7 +91,7 @@
 }
 
 #kkpager_btn_go_input.focus{
-	border-color:#31ACE2;
+	border-color:#FF6600;
 }
 
 #kkpager .pageBtnWrap{

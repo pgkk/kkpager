@@ -4,7 +4,7 @@
 <title>test page</title>
 <script type="text/javascript" src="../lib/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="../src/kkpager.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../src/kkpager_blue.css" />
+<link rel="stylesheet" type="text/css" href="../src/kkpager_orange.css" />
 </head>
 <body>
 <div style="width:800px;margin:0 auto;">
@@ -33,12 +33,12 @@ $(function(){
 		total : totalPage,
 		//总数据条数
 		totalRecords : totalRecords,
-		//链接前部
-		hrefFormer : 'pager_test',
-		//链接尾部
-		hrefLatter : '.html',
-		getLink : function(n){
-			return this.hrefFormer + this.hrefLatter + "?pno="+n;
+		mode : 'click',//默认值是link，可选link或者click
+		click : function(n){
+			// do something
+			//手动选中按钮
+			this.selectPage(n);
+			return false;
 		}
 		/*
 		,lang				: {
@@ -63,13 +63,6 @@ $(function(){
 			buttonTipBeforeText		: '第',
 			buttonTipAfterText		: '页'
 		}*/
-		
-		//,
-		//mode : 'click',//默认值是link，可选link或者click
-		//click : function(n){
-		//	this.selectPage(n);
-		//  return false;
-		//}
 	});
 });
 </script>
@@ -78,7 +71,7 @@ $(function(){
 <textarea style="width:800px;height:60px;">
 <script type="text/javascript" src="../lib/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="../src/kkpager.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../src/kkpager_blue.css" />
+<link rel="stylesheet" type="text/css" href="../src/kkpager_orange.css" />
 </textarea>
 <h3>调用代码：</h3>
 <textarea style="width:800px;height:300px;">
@@ -93,12 +86,12 @@ $(function(){
 		total : totalPage,
 		//总数据条数
 		totalRecords : totalRecords,
-		//链接前部
-		hrefFormer : 'pager_test',
-		//链接尾部
-		hrefLatter : '.html',
-		getLink : function(n){
-			return this.hrefFormer + this.hrefLatter + "?pno="+n;
+		mode : 'click',//默认值是link，可选link或者click
+		click : function(n){
+			// do something
+			//手动选中按钮
+			this.selectPage(n);
+			return false;
 		}
 		/*
 		,lang				: {
@@ -123,20 +116,13 @@ $(function(){
 			buttonTipBeforeText		: '第',
 			buttonTipAfterText		: '页'
 		}*/
-		
-		//,
-		//mode : 'click',//默认值是link，可选link或者click
-		//click : function(n){
-		//	this.selectPage(n);
-		//  return false;
-		//}
 	});
 });
 </script>
 </textarea>
 <h3>其他示例：</h3>
-<a href="pager_test_orange_color.html?pno=17">kkpager示例：橘色皮肤</a><br/>
-<a href="pager_test_clickmode.html?pno=17">kkpager示例：click模式</a><br/>
+<a href="pager_test.html?pno=17">kkpager示例：蓝色皮肤(link模式)</a><br/>
+<a href="pager_test_orange_color.html?pno=17">kkpager示例：橘色皮肤(link模式)</a><br/>
 <div>
 </body>
 </html>

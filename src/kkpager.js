@@ -1,6 +1,5 @@
 ﻿/*
-  kkpager V1.2.2
-  一个分页展示按钮控件
+  kkpager V1.3
   https://github.com/pgkk/kkpager
 
   Copyright (c) 2013 cqzhangkang@163.com
@@ -17,8 +16,11 @@ var kkpager = {
 		isShowPrePageBtn	: true, //是否显示上一页按钮
 		isShowNextPageBtn	: true, //是否显示下一页按钮
 		isShowTotalPage 	: true, //是否显示总页数
-		isShowTotalRecords 	: true, //是否显示总记录数
+		isShowCurrPage		: true,//是否显示当前页
+		isShowTotalRecords 	: false, //是否显示总记录数
 		isGoPage 			: true,	//是否显示页码跳转输入框
+		isWrapedPageBtns	: true,	//是否用span包裹住页码按钮
+		isWrapedInfoTextAndGoPageBtn : true, //是否用span包裹住分页信息和跳转按钮
 		hrefFormer			: '', //链接前部
 		hrefLatter			: '', //链接尾部
 		gopageWrapId		: 'kkpager_gopage_wrap',
@@ -35,8 +37,12 @@ var kkpager = {
 			nextPageTipText			: '下一页',
 			totalPageBeforeText		: '共',
 			totalPageAfterText		: '页',
+			currPageBeforeText		: '当前第',
+			currPageAfterText		: '页',
+			totalInfoSplitStr		: '/',
+			totalRecordsBeforeText	: '共',
 			totalRecordsAfterText	: '条数据',
-			gopageBeforeText		: '转到',
+			gopageBeforeText		: '&nbsp;转到',
 			gopageButtonOkText		: '确定',
 			gopageAfterText			: '页',
 			buttonTipBeforeText		: '第',
@@ -71,11 +77,9 @@ var kkpager = {
 			var btnGo = $('#'+this.gopageButtonId);
 			$('#'+this.gopageTextboxId).attr('hideFocus',true);
 			btnGo.show();
-			btnGo.css('left','0px');
-			$('#'+this.gopageWrapId).css('border-color','#6694E3');
-			btnGo.animate({left: '+=44'}, 50,function(){
-				//$('#'+this.gopageWrapId).css('width','88px');
-			});
+			btnGo.css('left','10px');
+			$('#'+this.gopageTextboxId).addClass('focus');
+			btnGo.animate({left: '+=30'}, 50);
 		},
 		//跳转框失去输入焦点时
 		blur_gopage : function(){
@@ -83,11 +87,10 @@ var kkpager = {
 			setTimeout(function(){
 				var btnGo = $('#'+_this.gopageButtonId);
 				btnGo.animate({
-				    left: '-=44'
+				    left: '-=25'
 				  }, 100, function(){
-					  btnGo.css('left','0px');
 					  btnGo.hide();
-					  $('#'+_this.gopageWrapId).css('border-color','#DFDFDF');
+					  $('#'+_this.gopageTextboxId).removeClass('focus');
 				  });
 			},400);
 		},
@@ -169,29 +172,35 @@ var kkpager = {
 				}
 			}
 			var str = '';
-			var dot = '<span>...</span>';
-			var total_info='';
-			if(this.isShowTotalPage || this.isShowTotalRecords){
-				total_info = '&nbsp;<span class="normalsize">'+this.lang.totalPageBeforeText;
+			var dot = '<span class="spanDot">...</span>';
+			var total_info='<span class="totalText">';
+			var total_info_splitstr = '<span class="totalInfoSplitStr">'+this.lang.totalInfoSplitStr+'</span>';
+			if(this.isShowCurrPage){
+				total_info += this.lang.currPageBeforeText + '<span class="currPageNum">' + this.pno + '</span>' + this.lang.currPageAfterText;
 				if(this.isShowTotalPage){
-					total_info += this.total + this.lang.totalPageAfterText;
-					if(this.isShowTotalRecords){
-						total_info += '/';
-					}
+					total_info += total_info_splitstr;
+					total_info += this.lang.totalPageBeforeText + '<span class="totalPageNum">'+this.total + '</span>' + this.lang.totalPageAfterText;
+				}else if(this.isShowTotalRecords){
+					total_info += total_info_splitstr;
+					total_info += this.lang.totalRecordsBeforeText + '<span class="totalRecordNum">'+this.totalRecords + '</span>' + this.lang.totalRecordsAfterText;
 				}
+			}else if(this.isShowTotalPage){
+				total_info += this.lang.totalPageBeforeText + '<span class="totalPageNum">'+this.total + '</span>' + this.lang.totalPageAfterText;;
 				if(this.isShowTotalRecords){
-					total_info += this.totalRecords + this.lang.totalRecordsAfterText;
+					total_info += total_info_splitstr;
+					total_info += this.lang.totalRecordsBeforeText + '<span class="totalRecordNum">'+this.totalRecords + '</span>' + this.lang.totalRecordsAfterText;
 				}
-				
-				total_info += '</span>';
+			}else if(this.isShowTotalRecords){
+				total_info += this.lang.totalRecordsBeforeText + '<span class="totalRecordNum">'+this.totalRecords + '</span>' + this.lang.totalRecordsAfterText;
 			}
+			total_info += '</span>';
 			
 			var gopage_info = '';
 			if(this.isGoPage){
-				gopage_info = '&nbsp;'+this.lang.gopageBeforeText+'<span id="'+this.gopageWrapId+'">'+
+				gopage_info = '<span class="goPageBox">'+this.lang.gopageBeforeText+'<span id="'+this.gopageWrapId+'">'+
 					'<input type="button" id="'+this.gopageButtonId+'" onclick="kkpager.gopage()" value="'
 						+this.lang.gopageButtonOkText+'" />'+
-					'<input type="text" id="'+this.gopageTextboxId+'" onfocus="kkpager.focus_gopage()"  onkeypress="return kkpager.keypress_gopage(event);"   onblur="kkpager.blur_gopage()" value="'+this.next+'" /></span>'+this.lang.gopageAfterText;
+					'<input type="text" id="'+this.gopageTextboxId+'" onfocus="kkpager.focus_gopage()"  onkeypress="return kkpager.keypress_gopage(event);"   onblur="kkpager.blur_gopage()" value="'+this.next+'" /></span>'+this.lang.gopageAfterText+'</span>';
 			}
 			
 			//分页处理
@@ -246,9 +255,19 @@ var kkpager = {
 					}
 				}
 			}
-			
-			str = "&nbsp;" + str_first + str_prv + str + str_next + str_last + total_info + gopage_info;
-			$("#"+this.pagerid).html(str);
+			var pagerHtml = '<div>';
+			if(this.isWrapedPageBtns){
+				pagerHtml += '<span class="pageBtnWrap">' + str_first + str_prv + str + str_next + str_last + '</span>'
+			}else{
+				pagerHtml += str_first + str_prv + str + str_next + str_last;
+			}
+			if(this.isWrapedInfoTextAndGoPageBtn){
+				pagerHtml += '<span class="infoTextAndGoPageBtnWrap">' + total_info + gopage_info + '</span>';
+			}else{
+				pagerHtml += total_info + gopage_info;
+			}
+			pagerHtml += '</div><div style="clear:both;"></div>';
+			$("#"+this.pagerid).html(pagerHtml);
 		},
 		//分页按钮控件初始化
 		init : function(config){
@@ -265,7 +284,10 @@ var kkpager = {
 			if(config.isShowPrePageBtn != undefined){this.isShowPrePageBtn=config.isShowPrePageBtn;}
 			if(config.isShowNextPageBtn != undefined){this.isShowNextPageBtn=config.isShowNextPageBtn;}
 			if(config.isShowTotalPage != undefined){this.isShowTotalPage=config.isShowTotalPage;}
+			if(config.isShowCurrPage != undefined){this.isShowCurrPage=config.isShowCurrPage;}
 			if(config.isShowTotalRecords != undefined){this.isShowTotalRecords=config.isShowTotalRecords;}
+			if(config.isWrapedPageBtns){this.isWrapedPageBtns=config.isWrapedPageBtns;}
+			if(config.isWrapedInfoTextAndGoPageBtn){this.isWrapedInfoTextAndGoPageBtn=config.isWrapedInfoTextAndGoPageBtn;}
 			if(config.isGoPage != undefined){this.isGoPage=config.isGoPage;}
 			if(config.lang){
 				for(var key in config.lang){
