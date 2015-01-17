@@ -1,15 +1,17 @@
-kkpager v1.2
+kkpager v1.3
 =======
 
 js分页展示控件，传入简单参数就能使用的分页效果控件
 
-<b>在线测试链接：</b>http://pgkk.github.io/kkpager/example/pager_test.html
-
+<b>在线测试链接：</b>
+http://pgkk.github.io/kkpager/example/pager_test.html
+http://pgkk.github.io/kkpager/example/pager_test_orange_color.html
+http://pgkk.github.io/kkpager/example/pager_test_clickmode.html
 ### 准备工作,引入js、css
 ```html
 <script type="text/javascript" src="../lib/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="../src/kkpager.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../src/kkpager.css" />
+<link rel="stylesheet" type="text/css" href="../src/kkpager_blue.css" />
 ```
 ### HTML DOM容器
 ```html
@@ -94,9 +96,11 @@ click 参数需要按需要重写,而getHref一般需要配置。
 
 > `mode` 模式，click或link `字符串` 默认值 'link'
 
-> `isShowTotalPage` 是否显示总页数 `布尔型` 默认值 true
+> `isShowTotalPage` 是否显示总页数 `布尔型` 默认值 true 
 
-> `isShowTotalRecords` 是否显示总记录数 `布尔型` 默认值 true
+> `isShowCurrPage` 是否显示当前页 `布尔型` 默认值 true
+
+> `isShowTotalRecords` 是否显示总记录数 `布尔型` 默认值 false (当`isShowTotalPage`为`true`时，此设置无效)
 
 > `isShowFirstPageBtn` 是否显示首页按钮 `布尔型` 默认值 true
 
@@ -107,6 +111,10 @@ click 参数需要按需要重写,而getHref一般需要配置。
 > `isShowNextPageBtn` 是否显示下一页按钮 `布尔型` 默认值 true
 
 > `isGoPage` 是否显示页码跳转输入框 `布尔型` 默认值 true
+
+> `isWrapedPageBtns`  是否用span包裹住页码按钮 `布尔型` 默认值 true
+
+> `isWrapedInfoTextAndGoPageBtn` 是否用span包裹住分页信息和跳转按钮 `布尔型` 默认值 true
 
 > `hrefFormer` 链接前部 `字符串` 默认值 ''
 
