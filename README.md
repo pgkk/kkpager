@@ -15,7 +15,7 @@ http://pgkk.github.io/kkpager/example/pager_test_clickmode.html
 ```
 ### HTML DOM容器
 ```html
-<div id="kkpager"></div>
+<div class="kkpager" id="kkpager_XXXX"></div>
 ```
 ### 调用方法
 
@@ -23,7 +23,9 @@ http://pgkk.github.io/kkpager/example/pager_test_clickmode.html
 ```html
 <script type="text/javascript">
 //生成分页控件  
+kkpager = getKKPagerObject('kkpager_XXXX');
 kkpager.generPageHtml({
+	pagerid : 'kkpager_XXXX',
 	pno : '${p.pageNo}',
 	mode : 'link', //可选，默认就是link
 	//总页码  
@@ -58,7 +60,9 @@ getLink 参数需要按需要重写。
 ```html
 <script type="text/javascript">
 //生成分页控件  
+kkpager = getKKPagerObject('kkpager_XXXX');
 kkpager.generPageHtml({
+	pagerid : 'kkpager_XXXX',
 	pno : '${p.pageNo}',
 	mode : 'click', //设置为click模式
 	//总页码  
