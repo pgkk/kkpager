@@ -1,10 +1,10 @@
-#kkpager{
+.kkpager{
 	clear:both;
 	color:#999;
 	padding:5px 0px 5px 0px;
 	font-size:13px;
 }
-#kkpager a{
+.kkpager a{
 	float: left;
 	border: 1px solid #ccc;
 	display: inline;
@@ -19,7 +19,7 @@
 	color:#999;
 }
 
-#kkpager span.disabled{
+.kkpager span.disabled{
 	float: left;
 	display: inline;
 	padding: 3px 10px 3px 10px;
@@ -31,7 +31,7 @@
 	background-color:#FFF;
 	color:#DFDFDF;
 }
-#kkpager span.curr{
+.kkpager span.curr{
 	float: left;
 	border: 1px solid #FF6600;
 	display: inline;
@@ -43,12 +43,12 @@
 	background: #FFEEE5;
 	color: #FF6600;
 }
-#kkpager a:hover{
+.kkpager a:hover{
 	border:1px solid #FF6600; 
 	background-color:#FF6600; 
 	color:#fff;
 }
-#kkpager span.normalsize{
+.kkpager span.normalsize{
 }
 #kkpager_gopage_wrap{
 	position:relative;
@@ -94,21 +94,21 @@
 	border-color:#FF6600;
 }
 
-#kkpager .pageBtnWrap{
+.kkpager .pageBtnWrap{
 	float:left;
 }
-#kkpager .infoTextAndGoPageBtnWrap{
+.kkpager .infoTextAndGoPageBtnWrap{
 	float:right;
 }
-#kkpager .spanDot{
+.kkpager .spanDot{
 	float:left;
 	margin-right:5px;
 }
 
-#kkpager .currPageNum{
+.kkpager .currPageNum{
 	color:#FD7F4D;
 }
 
-#kkpager .infoTextAndGoPageBtnWrap{
+.kkpager .infoTextAndGoPageBtnWrap{
 	padding-top:5px;
 }
