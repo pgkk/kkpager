@@ -137,7 +137,11 @@ var kkpager = {
 			if(enforceInit || !this.inited){
 				this.init(config);
 			}
-			
+            //重置初始化数据
+			this.total = config.total;
+            this.totalRecords = config.totalRecords;
+            this.pno = config.pno;
+
 			var str_first='',str_prv='',str_next='',str_last='';
 			if(this.isShowFirstPageBtn){
 				if(this.hasPrv){
