@@ -57,6 +57,15 @@
     border: 1px solid #ccc;
 }
 
+/* 当前页，并且不可选择 */
+
+.kkpager-pages li.active.kkpager-disabled:hover{
+    background: #F0FDFF;
+    color: #31ACE2;
+    border: 1px solid #31ACE2;
+}
+
+
 .kkpager-tips{
 	color: #999;
 	font-size: 13px;

@@ -128,7 +128,7 @@
 				// 当前页/当前页前两页/当前页后两页
 				_showNum = _showNum || _kkpageNum == _kkcon.pno || _kkpageNum == _kkcon.pno - 1 || _kkpageNum == _kkcon.pno - 2 || _kkpageNum == _kkcon.pno + 1 || _kkpageNum == _kkcon.pno + 2;
 				if (_showNum) {
-					var _kkactive = _kkpageNum == _kkcon.pno ? "class='active'" : "";
+					var _kkactive = _kkpageNum == _kkcon.pno ? "class='active kkpager-disabled'" : "";
 					$(_kkpagerContent + " .kkpager-pages").append("<li data-value='" + _kkpageNum + "' " + _kkactive + ">" + _kkpageNum + "</li>");
 				}
 				if (!_showNum && (!_kkpageBeforOmit || !_kkpageAfterOmit)) {
