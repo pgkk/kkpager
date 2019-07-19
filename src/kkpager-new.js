@@ -188,6 +188,23 @@
 			var _kkpager = this;
 			// 跳页输入框赋值
 			$(".kkpager-input").val(this.config.next);
+			// 键入操作
+			$(".kkpager-input").keypress(function () {
+				var event = arguments[0] || window.event;
+				var code = event.keyCode || event.charCode;
+				//delete key
+				if (code == 8) return true;
+				//enter key
+				if (code == 13) {
+					$(".kkpager-button").click();
+					return false;
+				}
+				//copy and paste
+				if (event.ctrlKey && (code == 99 || code == 118)) return true;
+				//only number key
+				if (code < 48 || code > 57) return false;
+				return true;
+			});
 			// 跳页输入框获取焦点后，显示输入框
 			$(".kkpager-input").focus(function () {
 				$(".kkpager-button").show();
