@@ -6,7 +6,7 @@
   Licensed under the GNU GENERAL PUBLIC LICENSE
 */
 var kkpager = {
-	pagerid: 'kkpager', //divID
+	pagerid: 'kkpager', //div ID ,kkpager 容器
 	mode: 'link', //模式(link 或者 click)
 	pno: 1, //当前页码
 	total: 1, //总页码

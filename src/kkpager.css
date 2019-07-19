@@ -1,0 +1,102 @@
+.kkpager-pages{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.kkpager-pages li{
+    display: inline-block;
+    border: 1px solid #ccc;
+    color: #999;
+    padding: 3px 10px 3px 10px;
+    margin-right: 5px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    cursor: pointer;
+    background: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.kkpager-pages li.active{
+    background: #F0FDFF;
+    color: #31ACE2;
+    border: 1px solid #31ACE2;
+}
+
+.kkpager-pages li:hover{
+	border: 1px solid #31ACE2;
+    background-color: #31ACE2;
+    color: #fff;
+}
+
+/* 省略号 */
+
+.kkpager-pages li.kkpager-omit{
+	border:none;
+	cursor: default;
+}
+
+.kkpager-pages li.kkpager-omit:hover{
+	border:none ;
+    background: #fff ;
+    color: #999 ;
+}
+
+/* 不可选择 */
+
+.kkpager-pages li.kkpager-disabled{
+	cursor: default;
+}
+
+.kkpager-pages li.kkpager-disabled:hover{
+    background: #fff ;
+    color: #999 ;
+    border: 1px solid #ccc;
+}
+
+.kkpager-tips{
+	color: #999;
+	font-size: 13px;
+    display: inline-block;
+}
+
+.kkpager-hilight{
+	color: #31ace2;
+}
+
+.kkpager-input{
+	width: 36px;
+    height: 14px;
+    color: #999;
+    text-align: center;
+    margin-left: 1px;
+    margin-right: 1px;
+    border: 1px solid #DFDFDF;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    outline: none;
+}
+
+.kkpager-button{
+	display: none;
+    width: 42px;
+    height: 18px;
+    border: 0px;
+    line-height: 140%;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #31ACE2;
+    color: #FFF;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    position: absolute;
+    z-index: -1;
+    margin-top: 1px;
+    margin-left: -54px;
+    transition: all .3s;
+}
