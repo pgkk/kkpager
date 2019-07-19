@@ -10,24 +10,29 @@
 
 <body>
 	<div style="width:1400px;margin:0 auto;text-align: center">
-		<div id="kkpager_test"></div>
+		<div id="kkpager_test1"></div>
+		<div id="kkpager_test2"></div>
 	</div>
 	<script type="text/javascript">
-		function getParameter(name) {
-			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-			var r = window.location.search.substr(1).match(reg);
-			if (r != null) return unescape(r[2]); return null;
-		}
-
-		// 使用方法 demo("args") 和 new demo("args")
 		var kkpager = new KKPager({
-			id: "kkpager_test",
+			id: "kkpager_test1",
 			pno: 1,
 			total: 17,
 			totalRecords: 170,
 			isShowTotalRecords: true,
 			click: function (n) {
-				console.log(n)
+				console.log("test1:"+n)
+			}
+		});
+
+		var kkpager = new KKPager({
+			id: "kkpager_test2",
+			pno: 1,	
+			total: 10,
+			totalRecords: 100,
+			isShowTotalRecords: true,
+			click: function (n) {
+				console.log("test2:"+n)
 			}
 		});
 	</script>

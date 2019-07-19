@@ -29,8 +29,6 @@
 			isShowCurrPage: true,//是否显示当前页
 			isShowTotalRecords: false, //是否显示总记录数
 			isGoPage: true,	//是否显示页码跳转输入框
-			isWrapedPageBtns: true,	//是否用span包裹住页码按钮
-			isWrapedInfoTextAndGoPageBtn: true, //是否用span包裹住分页信息和跳转按钮
 			hrefFormer: '', //链接前部
 			hrefLatter: '', //链接尾部
 			click: null,
@@ -77,8 +75,6 @@
 			if (config.isShowTotalPage != undefined) { this.config.isShowTotalPage = config.isShowTotalPage; }
 			if (config.isShowCurrPage != undefined) { this.config.isShowCurrPage = config.isShowCurrPage; }
 			if (config.isShowTotalRecords != undefined) { this.config.isShowTotalRecords = config.isShowTotalRecords; }
-			if (config.isWrapedPageBtns) { this.config.isWrapedPageBtns = config.isWrapedPageBtns; }
-			if (config.isWrapedInfoTextAndGoPageBtn) { this.config.isWrapedInfoTextAndGoPageBtn = config.isWrapedInfoTextAndGoPageBtn; }
 			if (config.isGoPage != undefined) { this.config.isGoPage = config.isGoPage; }
 			if (config.lang) {
 				for (var key in config.lang) {
@@ -131,6 +127,7 @@
 					var _kkactive = _kkpageNum == _kkcon.pno ? "class='active kkpager-disabled'" : "";
 					$(_kkpagerContent + " .kkpager-pages").append("<li data-value='" + _kkpageNum + "' " + _kkactive + ">" + _kkpageNum + "</li>");
 				}
+				// 省略号
 				if (!_showNum && (!_kkpageBeforOmit || !_kkpageAfterOmit)) {
 					if (!_kkpageBeforOmit && _kkpageNum < _kkcon.pno) {
 						$(_kkpagerContent + " .kkpager-pages").append("<li class='kkpager-omit'>…</li>");
@@ -206,13 +203,13 @@
 				return true;
 			});
 			// 跳页输入框获取焦点后，显示输入框
-			$(".kkpager-input").focus(function () {
+			$("#" + this.config.id + " .kkpager-input").focus(function () {
 				$(".kkpager-button").show();
 				$(".kkpager-button").css("margin-left", "0");
 				$(".kkpager-button").css("z-index", "1");
 			});
 			// 跳页输入框失去焦点后，隐藏输入框
-			$(".kkpager-input").focusout(function () {
+			$("#" + this.config.id + " .kkpager-input").focusout(function () {
 				setTimeout(function () {
 					var btnGo = $('.kkpager-button');
 					btnGo.animate({
@@ -224,7 +221,7 @@
 				}, 400);
 			});
 			// 点击跳转按钮，跳转指定页
-			$(".kkpager-button").bind("click", function () {
+			$("#" + this.config.id + " .kkpager-button").bind("click", function () {
 				var _kkinput = $(".kkpager-input").val();
 				_kkpager.jumpPage(_kkinput);
 			});
@@ -241,7 +238,7 @@
 		jumpPage: function (page) {
 			this.config.pno = page;
 			this.init(this.config);
-			this.config.click && this.config.click(page);
+			this.config.click && this.config.click(this.config.pno);
 		}
 	}
 
