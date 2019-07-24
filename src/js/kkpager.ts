@@ -227,7 +227,7 @@ class KKConfig {
         parameters["isShowNextPageBtn"] == undefined ? this.isShowNextPageBtn = true : this.isShowNextPageBtn = parameters["isShowNextPageBtn"];
         parameters["isShowTotalPage"] == undefined ? this.isShowTotalPage = true : this.isShowTotalPage = parameters["isShowTotalPage"];
         parameters["isShowCurrPage"] == undefined ? this.isShowCurrPage = true : this.isShowCurrPage = parameters["isShowCurrPage"];
-        parameters["isShowTotalRecords"] == undefined ? this.isShowTotalRecords = true : this.isShowTotalRecords = parameters["isShowTotalRecords"];
+        parameters["isShowTotalRecords"] == undefined ? this.isShowTotalRecords = false : this.isShowTotalRecords = parameters["isShowTotalRecords"];
         parameters["isGoPage"] == undefined ? this.isGoPage = true : this.isGoPage = parameters["isGoPage"];
         parameters["lang"] == undefined ? this.lang = new KKLang() : this.lang = parameters["lang"];
         this.prv = undefined;
