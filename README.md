@@ -29,6 +29,8 @@ JS分页控件，独立版，无需依赖jquery等框架
 		total:17,
 		// 总记录条数
 		totalRecords:100,
+		// 样式颜色，默认为blue
+		style:"orange",
 		// 切换页码事件
 		click:function(n){
 			// 输出选择页码
@@ -102,6 +104,8 @@ JS分页控件，独立版，无需依赖jquery等框架
 > `isGoPage` 是否显示页码跳转输入框 `布尔型` 默认值 true
 
 > `click` 自定义事件处理函数 `函数类型`
+
+> `style` 颜色样式 `字符串` 默认值 'blue' ,可选项：blue,orange
 
 > `lang` 语言配置对象，属性配置列表：
 

@@ -21,15 +21,9 @@
 }
 
 .kkpager-pages li.active{
-    background: #F0FDFF;
-    color: #31ACE2;
-    border: 1px solid #31ACE2;
 }
 
 .kkpager-pages li:hover{
-	border: 1px solid #31ACE2;
-    background-color: #31ACE2;
-    color: #fff;
 }
 
 /* 省略号 */
@@ -60,9 +54,6 @@
 /* 当前页，并且不可选择 */
 
 .kkpager-pages li.active.kkpager-disabled:hover{
-    background: #F0FDFF;
-    color: #31ACE2;
-    border: 1px solid #31ACE2;
 }
 
 
@@ -73,7 +64,6 @@
 }
 
 .kkpager-hilight{
-	color: #31ace2;
 }
 
 .kkpager-input{
@@ -100,8 +90,6 @@
     margin: 0px;
     text-align: center;
     cursor: pointer;
-    background-color: #31ACE2;
-    color: #FFF;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -110,4 +98,73 @@
     margin-top: 1px;
     margin-left: -54px;
     transition: all .3s;
+}
+
+
+
+/* --- --- --- 颜色主题 --- --- --- */
+
+.kk-blue{
+
+}
+
+.kk-blue .kkpager-pages li.active{
+    background: #F0FDFF;
+    color: #31ACE2;
+    border: 1px solid #31ACE2;
+}
+
+.kk-blue .kkpager-pages li:hover{
+	border: 1px solid #31ACE2;
+    background-color: #31ACE2;
+    color: #fff;
+}
+
+.kk-blue .kkpager-pages li.active.kkpager-disabled:hover{
+    background: #F0FDFF;
+    color: #31ACE2;
+    border: 1px solid #31ACE2;
+}
+
+.kk-blue .kkpager-hilight{
+	color: #31ace2;
+}
+
+
+.kk-blue .kkpager-button{
+    background-color: #31ACE2;
+    color: #FFF;
+}
+
+
+
+.kk-orange{
+
+}
+
+.kk-orange .kkpager-pages li.active{
+    background: #FFEEE5;
+    color: #FF6600;
+    border: 1px solid #FF6600;
+}
+
+.kk-orange .kkpager-pages li:hover{
+	border: 1px solid #FF6600;
+    background-color: #FF6600;
+    color: #fff;
+}
+
+.kk-orange .kkpager-pages li.active.kkpager-disabled:hover{
+    background: #FFEEE5;
+    color: #FF6600;
+    border: 1px solid #FF6600;
+}
+
+.kk-orange .kkpager-hilight{
+	color: #FF6600;
+}
+
+.kk-orange .kkpager-button{
+    background-color: #FF6600;
+    color: #FFF;
 }

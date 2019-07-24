@@ -7,15 +7,33 @@ class KKPager {
     button: HTMLButtonElement;
     input: HTMLInputElement;
     items: HTMLCollectionOf<HTMLLIElement>;
+    style:string;
 
     constructor(config: KKConfig) {
         this.config = config;
         this.disabled = "";
+        this.setStyle();
         this.init();
         this.event();
     }
 
+    setStyle() {
+        switch (this.config.style) {
+            case "blue":
+                this.style = "kk-blue";
+                break;
+            case "orange":
+                this.style = "kk-orange";
+                break;
+            default:
+                this.style = "kk-blue";
+                break;
+        }
+    }
+
     init() {
+        // 样式颜色
+        document.getElementById(this.config.id).className += " "+this.style;
         // 页码列表（包括首页、上一页、下一页、尾页）
         document.getElementById(this.config.id).innerHTML = "<ul class='kkpager-pages'></ul>";
         this.list = document.getElementById(this.config.id).getElementsByClassName("kkpager-pages")[0];
@@ -63,8 +81,8 @@ class KKPager {
             this.list.innerHTML += "<li data-value='" + this.config.total + "' " + this.disabled + ">" + this.config.lang.lastPageText + "</li>";
         }
         // 信息（当前页码、总页码、总条数、跳页）
-        this.list.innerHTML += "<div class='kkpager-tips'></div>";
-        this.tips = this.list.getElementsByClassName("kkpager-tips")[0];
+        document.getElementById(this.config.id).innerHTML += "<div class='kkpager-tips'></div>";
+        this.tips = document.getElementById(this.config.id).getElementsByClassName("kkpager-tips")[0];
         var _kkAppendFrist = false;
         // 当前页
         if (this.config.isShowCurrPage) {
@@ -200,6 +218,8 @@ class KKConfig {
     isShowTotalRecords: boolean;
     // 是否显示页码跳转输入框
     isGoPage: boolean;
+    // 主题颜色
+    style:string;
     // 语言
     lang: KKLang;
     // 上一页码
@@ -229,6 +249,7 @@ class KKConfig {
         parameters["isShowCurrPage"] == undefined ? this.isShowCurrPage = true : this.isShowCurrPage = parameters["isShowCurrPage"];
         parameters["isShowTotalRecords"] == undefined ? this.isShowTotalRecords = false : this.isShowTotalRecords = parameters["isShowTotalRecords"];
         parameters["isGoPage"] == undefined ? this.isGoPage = true : this.isGoPage = parameters["isGoPage"];
+        parameters["style"] == undefined ? this.style = "blue" : this.style = parameters["style"];
         parameters["lang"] == undefined ? this.lang = new KKLang() : this.lang = parameters["lang"];
         this.prv = undefined;
         this.next = undefined;
