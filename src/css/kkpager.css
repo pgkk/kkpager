@@ -34,9 +34,9 @@
 }
 
 .kkpager-pages li.kkpager-omit:hover{
-	border:none ;
-    background: #fff ;
-    color: #999 ;
+	border:none !important;
+    background: #fff !important;
+    color: #999 !important;
 }
 
 /* 不可选择 */
