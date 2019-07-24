@@ -22,9 +22,11 @@
 			id:"kkpager_test1",
 			pno:1,
 			total:17,
+			timelyResponse:false,
 			totalRecords:100,
 			click:function(n){
 				console.log("kkpager 1 :"+n);
+				this.selectPage(n);
 			}
 		});
 		var kkpager1 = new KKPager(kkconfig1);

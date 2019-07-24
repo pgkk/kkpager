@@ -84,6 +84,7 @@ var KKPager = /** @class */ (function () {
         }
     };
     KKPager.prototype.event = function () {
+        this.config.selectPage = this.selectPage.bind(this);
         this.input = document.getElementById(this.config.id).getElementsByClassName("kkpager-input")[0];
         this.button = document.getElementById(this.config.id).getElementsByClassName("kkpager-button")[0];
         this.items = document.getElementById(this.config.id).getElementsByTagName("li");
@@ -127,33 +128,37 @@ var KKPager = /** @class */ (function () {
         this.button.onclick = function () {
             var _kkvalue = this.input.value;
             console.log(_kkvalue);
-            this.jump(_kkvalue);
+            this.jump(_kkvalue, false, true);
         }.bind(this);
         // 点击分页目录跳转 
         for (var _kki = 0; _kki < this.items.length; _kki++) {
             this.items[_kki].onclick = function (e) {
                 var _kkvalue = e.target.getAttribute("data-value");
                 if (_kkvalue != undefined && _kkvalue != null)
-                    this.jump(_kkvalue);
+                    this.jump(_kkvalue, false, true);
             }.bind(this);
         }
     };
     KKPager.prototype.selectPage = function (no) {
-        this.jump(no);
+        this.jump(no, true, false);
     };
-    KKPager.prototype.jump = function (no) {
+    KKPager.prototype.jump = function (no, response, iscallback) {
+        var _kkno = parseInt(no);
         // 跳转页为当前页不做处理
         if (parseInt(no) == this.config.pno) {
             return;
         }
         // 当配置为不要及时响应的话，先返回页码，等待用户手动调用响应
-        if (this.config.timelyResponse) {
+        // 或者手动调用切换页码时，响应
+        if (this.config.timelyResponse || response) {
             this.config.pno = parseInt(no == undefined ? "1" : no);
             this.config.validate();
             this.init();
             this.event();
         }
-        this.config.click && this.config.click(this.config.pno);
+        if (iscallback) {
+            this.config.click && this.config.click(_kkno);
+        }
     };
     return KKPager;
 }());
