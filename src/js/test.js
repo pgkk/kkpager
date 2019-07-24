@@ -54,33 +54,33 @@ var KKPager = /** @class */ (function () {
         }
         // 信息（当前页码、总页码、总条数、跳页）
         this.list.innerHTML += "<div class='kkpager-tips'></div>";
-        this.tip = this.list.getElementsByClassName("kkpager-tips")[0];
+        this.tips = this.list.getElementsByClassName("kkpager-tips")[0];
         var _kkAppendFrist = false;
         // 当前页
         if (this.config.isShowCurrPage) {
-            this.tip.innerHTML += "<span>" + this.config.lang.currPageBeforeText + "<span class='kkpager-hilight'>" + this.config.pno + "</span>" + this.config.lang.currPageAfterText + "</span>";
+            this.tips.innerHTML += "<span>" + this.config.lang.currPageBeforeText + "<span class='kkpager-hilight'>" + this.config.pno + "</span>" + this.config.lang.currPageAfterText + "</span>";
             _kkAppendFrist = true;
         }
         // 总页数
         if (this.config.isShowTotalPage) {
             if (_kkAppendFrist) {
-                this.tip.innerHTML += "&nbsp;/&nbsp;";
+                this.tips.innerHTML += "&nbsp;/&nbsp;";
             }
             _kkAppendFrist = true;
-            this.tip.innerHTML += "<span>" + this.config.lang.totalPageBeforeText + "<span class='kkpager-curr'>" + this.config.total + "</span>" + this.config.lang.totalPageAfterText + "</span>";
+            this.tips.innerHTML += "<span>" + this.config.lang.totalPageBeforeText + "<span class='kkpager-curr'>" + this.config.total + "</span>" + this.config.lang.totalPageAfterText + "</span>";
         }
         // 总数据
         if (this.config.isShowTotalRecords) {
             if (_kkAppendFrist) {
-                this.tip.innerHTML += "&nbsp;/&nbsp;";
+                this.tips.innerHTML += "&nbsp;/&nbsp;";
             }
             _kkAppendFrist = true;
-            this.tip.innerHTML += "<span>" + this.config.lang.totalRecordsBeforeText + "<span class='kkpager-curr'>" + this.config.totalRecords + "</span>" + this.config.lang.totalRecordsAfterText + "</span>";
+            this.tips.innerHTML += "<span>" + this.config.lang.totalRecordsBeforeText + "<span class='kkpager-curr'>" + this.config.totalRecords + "</span>" + this.config.lang.totalRecordsAfterText + "</span>";
         }
         // 跳页 
         if (this.config.isGoPage) {
-            this.tip.innerHTML += "<span>" + this.config.lang.gopageBeforeText + "<input class='kkpager-input' />" + this.config.lang.gopageAfterText + "</span>";
-            this.tip.innerHTML += "<button class='kkpager-button'>" + this.config.lang.gopageButtonOkText + "</button>";
+            this.tips.innerHTML += "<span>" + this.config.lang.gopageBeforeText + "<input class='kkpager-input' />" + this.config.lang.gopageAfterText + "</span>";
+            this.tips.innerHTML += "<button class='kkpager-button'>" + this.config.lang.gopageButtonOkText + "</button>";
         }
     };
     KKPager.prototype.event = function () {
@@ -138,14 +138,21 @@ var KKPager = /** @class */ (function () {
             }.bind(this);
         }
     };
+    KKPager.prototype.selectPage = function (no) {
+        this.jump(no);
+    };
     KKPager.prototype.jump = function (no) {
+        // 跳转页为当前页不做处理
         if (parseInt(no) == this.config.pno) {
             return;
         }
-        this.config.pno = parseInt(no == undefined ? "1" : no);
-        this.config.validate();
-        this.init();
-        this.event();
+        // 当配置为不要及时响应的话，先返回页码，等待用户手动调用响应
+        if (this.config.timelyResponse) {
+            this.config.pno = parseInt(no == undefined ? "1" : no);
+            this.config.validate();
+            this.init();
+            this.event();
+        }
         this.config.click && this.config.click(this.config.pno);
     };
     return KKPager;
@@ -156,6 +163,7 @@ var KKConfig = /** @class */ (function () {
         this.pno = parameters["pno"];
         this.total = parameters["total"];
         parameters["totalRecords"] == undefined ? this.totalRecords = 0 : this.totalRecords = parameters["totalRecords"];
+        parameters["timelyResponse"] == undefined ? this.timelyResponse = true : this.timelyResponse = parameters["timelyResponse"];
         parameters["isShowFirstPageBtn"] == undefined ? this.isShowFirstPageBtn = true : this.isShowFirstPageBtn = parameters["isShowFirstPageBtn"];
         parameters["isShowLastPageBtn"] == undefined ? this.isShowLastPageBtn = true : this.isShowLastPageBtn = parameters["isShowLastPageBtn"];
         parameters["isShowPrePageBtn"] == undefined ? this.isShowPrePageBtn = true : this.isShowPrePageBtn = parameters["isShowPrePageBtn"];
