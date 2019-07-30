@@ -11,6 +11,9 @@ var KKPager = /** @class */ (function () {
             case "orange":
                 this.style = "kk-orange";
                 break;
+            case "red":
+                this.style = "kk-red";
+                break;
             case "blue":
             default:
                 this.style = "kk-blue";
@@ -19,7 +22,8 @@ var KKPager = /** @class */ (function () {
     };
     KKPager.prototype.init = function () {
         // 样式颜色
-        document.getElementById(this.config.id).className += " " + this.style;
+        if (document.getElementById(this.config.id).className.search(this.style) < 0)
+            document.getElementById(this.config.id).className += " " + this.style;
         // 页码列表（包括首页、上一页、下一页、尾页）
         document.getElementById(this.config.id).innerHTML = "<ul class='kkpager-pages'></ul>";
         this.list = document.getElementById(this.config.id).getElementsByClassName("kkpager-pages")[0];

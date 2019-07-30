@@ -168,3 +168,36 @@
     background-color: #FF6600;
     color: #FFF;
 }
+
+
+
+.kk-red{
+
+}
+
+.kk-red .kkpager-pages li.active{
+    background: #FFEEE5;
+    color: red;
+    border: 1px solid #FF6600;
+}
+
+.kk-red .kkpager-pages li:hover{
+	border: 1px solid #FF6600;
+    background-color: #FF6600;
+    color: #fff;
+}
+
+.kk-red .kkpager-pages li.active.kkpager-disabled:hover{
+    background: #FFEEE5;
+    color: #FF6600;
+    border: 1px solid #FF6600;
+}
+
+.kk-red .kkpager-hilight{
+	color: #FF6600;
+}
+
+.kk-red .kkpager-button{
+    background-color: #FF6600;
+    color: #FFF;
+}
