@@ -136,8 +136,6 @@
     color: #FFF;
 }
 
-
-
 .kk-orange{
 
 }
@@ -169,35 +167,64 @@
     color: #FFF;
 }
 
-
-
 .kk-red{
 
 }
 
 .kk-red .kkpager-pages li.active{
-    background: #FFEEE5;
+    background: #ffe9e9;
     color: red;
-    border: 1px solid #FF6600;
+    border: 1px solid red;
 }
 
 .kk-red .kkpager-pages li:hover{
-	border: 1px solid #FF6600;
-    background-color: #FF6600;
+	border: 1px solid red;
+    background-color: red;
     color: #fff;
 }
 
 .kk-red .kkpager-pages li.active.kkpager-disabled:hover{
-    background: #FFEEE5;
-    color: #FF6600;
-    border: 1px solid #FF6600;
+    background: #ffe9e9;
+    color: red;
+    border: 1px solid red;
 }
 
 .kk-red .kkpager-hilight{
-	color: #FF6600;
+	color: red;
 }
 
 .kk-red .kkpager-button{
-    background-color: #FF6600;
+    background-color: red;
+    color: #FFF;
+}
+
+.kk-green{
+
+}
+
+.kk-green .kkpager-pages li.active{
+    background: #e8ffe8;
+    color: green;
+    border: 1px solid green;
+}
+
+.kk-green .kkpager-pages li:hover{
+	border: 1px solid green;
+    background-color: green;
+    color: #fff;
+}
+
+.kk-green .kkpager-pages li.active.kkpager-disabled:hover{
+    background: #e8ffe8;
+    color: green;
+    border: 1px solid green;
+}
+
+.kk-green .kkpager-hilight{
+	color: green;
+}
+
+.kk-green .kkpager-button{
+    background-color: green;
     color: #FFF;
 }

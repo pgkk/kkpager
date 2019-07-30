@@ -15,6 +15,7 @@
 		<div id="kkpager_test1" class="test-kkpager"></div>
 		<div id="kkpager_test2" class="test-kkpager"></div>
 		<div id="kkpager_test3" class="test-kkpager"></div>
+		<div id="kkpager_test4" class="test-kkpager"></div>
 	</div>
 	<script type="text/javascript" src="../src/js/kkpager.min.js"></script>
 	<script type="text/javascript">
@@ -60,6 +61,22 @@
 			}
 		});
 		var kkpager3 = new KKPager(kkconfig3);
+
+		
+		// 第四个kkpager
+		var kkconfig4 = new KKConfig({
+			id:"kkpager_test4",
+			pno:1,
+			total:100,
+			style:"green",
+			timelyResponse:false,
+			totalRecords:100,
+			click:function(n){
+				console.log("kkpager 4 :"+n);
+				this.selectPage(n);
+			}
+		});
+		var kkpager4 = new KKPager(kkconfig4);
 	</script>
 </body>
 

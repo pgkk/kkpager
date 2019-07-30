@@ -25,6 +25,9 @@ class KKPager {
             case "red":
                 this.style = "kk-red";
                 break;
+            case "green":
+                this.style = "kk-green";
+                break;
             case "blue":
             default:
                 this.style = "kk-blue";
