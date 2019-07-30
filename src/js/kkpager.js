@@ -8,12 +8,10 @@ var KKPager = /** @class */ (function () {
     }
     KKPager.prototype.setStyle = function () {
         switch (this.config.style) {
-            case "blue":
-                this.style = "kk-blue";
-                break;
             case "orange":
                 this.style = "kk-orange";
                 break;
+            case "blue":
             default:
                 this.style = "kk-blue";
                 break;
