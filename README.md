@@ -105,7 +105,7 @@ JS分页控件，独立版，无需依赖jquery等框架
 
 > `click` 自定义事件处理函数 `函数类型`
 
-> `style` 颜色样式 `字符串` 默认值 'blue' ,可选项：blue,orange
+> `style` 颜色样式 `字符串` 默认值 'blue' ,可选项：blue,orange,red,green
 
 > `lang` 语言配置对象，属性配置列表：
 
