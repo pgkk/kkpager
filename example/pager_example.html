@@ -2,15 +2,22 @@
 <html>
 
 <head>
-	<title>test page</title>
+	<title>Example</title>
 	<link rel="stylesheet" type="text/css" href="../src/css/kkpager.min.css" />
 	<style>
+		h1{
+			margin: 0;
+    		padding: 0;
+    		text-align: center;
+		}
+		
 		.test-kkpager{
 			margin-top: 20px;
 		}
 	</style>
 </head>
 <body>
+	<h1>KKPager 示例</h1>
 	<div style="width:1400px;margin:0 auto;text-align: center">
 		<div id="kkpager_test1" class="test-kkpager"></div>
 		<div id="kkpager_test2" class="test-kkpager"></div>
@@ -53,8 +60,9 @@
 			pno:1,
 			total:15,
 			style:"red",
+			isShowTotalRecords:true,
 			timelyResponse:false,
-			totalRecords:100,
+			totalRecords:150,
 			click:function(n){
 				console.log("kkpager 3 :"+n);
 				this.selectPage(n);
