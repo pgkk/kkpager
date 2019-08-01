@@ -24,6 +24,8 @@ var KKPager = /** @class */ (function () {
         }
     };
     KKPager.prototype.init = function () {
+        // 横向对齐方式
+        document.getElementById(this.config.id).style.textAlign = this.config.align;
         // 样式颜色
         if (document.getElementById(this.config.id).className.search(this.style) < 0) {
             document.getElementById(this.config.id).className += " " + this.style;
@@ -200,6 +202,7 @@ var KKConfig = /** @class */ (function () {
         parameters["isShowTotalRecords"] == undefined ? this.isShowTotalRecords = false : this.isShowTotalRecords = parameters["isShowTotalRecords"];
         parameters["isGoPage"] == undefined ? this.isGoPage = true : this.isGoPage = parameters["isGoPage"];
         parameters["style"] == undefined ? this.style = "blue" : this.style = parameters["style"];
+        parameters["align"] == undefined ? this.align = "right" : this.align = parameters["align"];
         parameters["lang"] == undefined ? this.lang = new KKLang() : this.lang = parameters["lang"];
         this.prv = undefined;
         this.next = undefined;
